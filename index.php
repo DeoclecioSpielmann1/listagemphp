@@ -33,17 +33,26 @@ $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <h1>Listagem de Alunos</h1>
 
-<table>
-    <thead>
-        <tr>
+<table border="1" cellpadding="7">
+    <?php
+    foreach (alunos as $aluno) {
+        ?>
+          <tr>
             <th>ID</th>
             <th>Nome</th>
             <th>Idade</th>
             <th>Email</th>
             <th>Criado em</th>
             <th>Ações</th>
-        </tr>
-    </thead>
+        </tr> 
+        <tr>
+            <td><?= (int)$aluno['id'] ?></td>
+            <td><?= h($aluno['nome']) ?></td>
+            <td><?= (int)$aluno['Idade'] ?></td>
+            <td><?= h($aluno['email']) ?></td>
+            <td><?= (int)$aluno['id'] ?></td>
+            
+        </tr> 
     <tbody>
         <?php if (empty($alunos)): ?>
             <tr>
